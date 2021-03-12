@@ -257,4 +257,9 @@ int PortHandlerMac::getCFlagBaud(int baudrate)
   }
 }
 
+bool PortHandlerMac::setRS485()
+{
+  return true;
+}
+
 #endif

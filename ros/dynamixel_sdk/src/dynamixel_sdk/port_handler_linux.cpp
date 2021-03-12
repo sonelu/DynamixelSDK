@@ -314,4 +314,19 @@ int PortHandlerLinux::getCFlagBaud(int baudrate)
   }
 }
 
+bool PortHandlerLinux::setRS485()
+{
+  struct serial_rs485 rs485conf;
+  /* Enable RS485 mode: */
+	rs485conf.flags |= SER_RS485_ENABLED;
+  rs485conf.flags |= SER_RS485_RTS_ON_SEND;
+  rs485conf.flags &= ~(SER_RS485_RTS_AFTER_SEND);
+	rs485conf.delay_rts_before_send = 0;
+	rs485conf.delay_rts_after_send = 0;
+  if (ioctl (socket_fd_, TIOCSRS485, &rs485conf) < 0)
+		return false;
+	else
+    return true;
+}
+
 #endif

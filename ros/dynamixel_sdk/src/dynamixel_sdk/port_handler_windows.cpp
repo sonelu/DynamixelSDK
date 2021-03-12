@@ -232,4 +232,9 @@ DXL_HAL_OPEN_ERROR:
   return false;
 }
 
+
+bool PortHandlerWindows::setRS485()
+{
+  return true;
+}
 #endif

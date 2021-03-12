@@ -163,6 +163,12 @@ class PortHandlerLinux : public PortHandler
   /// @description The function checks whether current time is passed by the time of packet timeout from the time set by PortHandlerLinux::setPacketTimeout().
   ////////////////////////////////////////////////////////////////////////////////
   bool    isPacketTimeout();
+
+  ////////////////////////////////////////////////////////////////////////////////
+  /// @brief The function that handles the configuration of the serial port for RS485
+  /// @description Configures the serial port in RS485 mode to help with those interfaces that need this done in software.
+  ////////////////////////////////////////////////////////////////////////////////
+   bool    setRS485();
 };
 
 }
